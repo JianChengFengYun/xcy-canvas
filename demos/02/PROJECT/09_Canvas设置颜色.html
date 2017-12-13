@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas设置颜色</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 问题 - 应该在绘制前设置颜色,还是绘制后设置颜色?
+
+	// 1. 设置填充颜色
+	context.fillStyle = "green";
+
+	// 2. 绘制实心矩形
+	context.fillRect(10,10,100,100);
+	// 当前绘制的矩形是什么颜色?green
+	context.fillStyle = "pink";
+	context.fillRect(120,10,100,100);
+
+	// 设置描边颜色
+	context.strokeStyle = "blue";
+	context.strokeRect(230,10,100,100);
+
+	// 设置透明度
+	context.fillStyle = "red";
+	context.globalAlpha = 0.3;
+	context.fillRect(340,10,100,100);
+  </script>
+ </body>
+</html>

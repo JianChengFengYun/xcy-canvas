@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas绘制矩形</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	
+	// Canvas绘制图形的默认颜色 - 黑色
+
+	// 1. 绘制实心矩形
+	context.fillRect(10,10,100,100);
+	// 2. 绘制空心矩形 - 默认边框宽度为1
+	context.strokeRect(120,10,100,100);
+	// 3. 清除指定区域的矩形
+	context.fillRect(240,10,100,100);
+	context.clearRect(250,20,80,80);
+
+	context.strokeRect(360,10,100,100);
+	//context.clearRect(359,9,102,102)
+  </script>
+ </body>
+</html>

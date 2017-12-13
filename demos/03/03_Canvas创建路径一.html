@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas创建路径一</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="600px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 1. 调用beginPath()方法(必要),表示开始创建路径
+	context.beginPath();
+	// 2. 设置形状 - 矩形
+	context.rect(10,10,100,100);
+	// 3. 调用closePath()方法(可写可不写)
+	context.closePath();
+	// 4. 绘制
+	context.fill();
+
+	// 利用创建路径绘制空心矩形
+	// 问题:是否需要再次调用beginPath()?编写
+	context.beginPath();
+	context.rect(10,120,100,100);
+	context.stroke();
+
+	// 使用创建路径绘制实心圆形
+	context.beginPath();
+	/*
+	 * arc(x,y,radius,startAngle,endAngle,direction);
+	 * * x和y1 - 设置圆形的圆心坐标值
+	 * * radius - 设置圆形的半径
+	 * * startAngle和endAngle
+	 * * direction - 是顺时针还是逆时针
+	 *   * Boolean值,默认值为false,表示顺时针
+	 */
+	context.arc(170,60,50,0,Math.PI*2);
+	context.fill();
+
+	context.beginPath();
+	context.arc(170,170,50,0,Math.PI*3/2,false);
+	context.fill();
+
+	// 使用创建路径绘制空心圆形
+	context.beginPath();
+	context.arc(280,60,50,0,Math.PI*2);
+	context.stroke();
+
+	context.beginPath();
+	context.arc(280,170,50,0,Math.PI*3/2);
+	context.stroke();
+
+	context.beginPath();
+	context.arc(280,280,50,0,Math.PI*3/2);
+	// closePath()必须在绘制方法之前调用 - 起作用
+	context.closePath();
+	context.stroke();
+	
+  </script>
+ </body>
+</html>

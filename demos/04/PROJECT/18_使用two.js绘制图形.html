@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>使用two.js绘制图形</title>
+  <meta charset="utf-8" />
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+  <div id="elem"></div>
+  <script>
+	var elem = document.getElementById("elem");
+	var params = {
+		type : Two.Types.svg,
+		fullscreen : true
+	}
+	var two = new Two(params).appendTo(elem);
+	// 绘制圆形
+	two.makeCircle(50,50,30);
+	/*
+	 * 绘制矩形
+	 * makeRectangle(x,y,width,height)
+	 * * x和y - 表示绘制矩形的坐标值(中心点)
+	 * * width和height - 表示绘制矩形的宽度和高度
+	 */
+	two.makeRectangle(60,60,100,100);
+	// 绘制椭圆
+	two.makeEllipse(300,300,200,100);
+	two.update();
+  </script>
+ </body>
+</html>

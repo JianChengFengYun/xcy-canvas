@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>two.js实现动画效果</title>
+  <meta charset="utf-8" />
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+  <div id="elem"></div>
+  <script>
+	var elem = document.getElementById("elem");
+	var two = new Two({ width: 285, height: 200 }).appendTo(elem);
+	var circle = two.makeCircle(-70, 0, 50);
+	circle.fill = '#FF8000';
+	
+	var rect = two.makeRectangle(70, 0, 100, 100);
+	rect.fill = 'rgba(0, 200, 255, 0.75)';
+
+	var group = two.makeGroup(circle,rect);
+	group.translation.set(two.width / 2, two.height / 2);
+	group.scale = 0;
+	group.noStroke();
+
+	/*
+	 * 动画效果
+	 * two.bind("update",function(){
+	 *    实现动画逻辑代码
+	 * }).play();
+	 *
+	 * 上述写法类似于DOM中的setInteval()
+	 * setInterval(function(){
+	 *    实现动画逻辑
+	 * },时间)
+	 */
+	two.bind("update",function(){
+		if (group.scale > 0.9999) {
+			group.scale = group.rotation = 0;
+		}
+		var t = (1 - group.scale) * 0.125;
+		// 0.125 0.25 0.375 0.5 0.625 0.75 0.875 1
+		group.scale += t;
+		group.rotation += t * 4 * Math.PI;
+	}).play();
+
+	//two.update();
+  </script>
+ </body>
+</html>

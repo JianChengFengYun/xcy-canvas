@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="applicable-device" content="pc,mobile"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>title</title>
+   <!-- <style>
+        .class{width:200px;height:200px;position:absolute;color:#FFFFFF;font-size:24px;}
+        .class{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#7FFF0000', endColorstr='#7FFF0000');background:rgba(255,0,0,0.5);}
+        :root .class{filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#00FF0000', endColorstr='#00FF0000');}/*for IE9*/
+        /*或者ie9的hack使用：*/
+        /*:root .class{filter:none;}!*for IE9*!*/
+    </style>-->
+</head>
+<body>
+<canvas id="canv1" style="border:1px solid #ddd;"></canvas>
+
+<script>
+    var ball={x:512 ,y:100, r:5, g:2, vx:-4,vy:0, color:"#005588"};
+    window.onload=function(){
+        var canvas=document.getElementById('canv1');
+        var content=canvas.getContext('2d');
+        canvas.width=800;
+        canvas.height=600;
+        setInterval(function(){
+            update(content);
+            render(content);
+        },40);
+    };
+
+    //绘制小圆
+    function render(ctx){
+        ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);//清空画布；
+        ctx.beginPath();
+        ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);
+        ctx.closePath();
+        ctx.fillStyle=ball.color;
+        ctx.fill();
+    }
+
+    //更新圆的位置
+    function update(ctx){
+        ball.x+=ball.vx;
+        ball.y+=ball.vy;
+        ball.vy+=ball.g;
+        if(ball.y>=ctx.canvas.height-ball.r){
+            ball.y=ctx.canvas.height-ball.r;
+            ball.vy=-ball.vy*0.5;//小球碰到底部反弹，并增加摩擦系数；
+            ball.vx=ball.vx*0.8;
+            /*console.log(ball.x);
+            console.log(ball.y);
+            console.log(ball.vy);*/
+            if(ball.vy>-4){
+                ball.vy=0;
+            }
+        }
+        if(ball.y<=0){
+            ball.y=ball.r*2;
+            ball.vy=-ball.vy;
+        }
+        if(ball.x<=0){
+            ball.x=ball.r*2;
+            ball.vx=-ball.vx*0.5;
+            ball.vy=ball.vy*0.5;
+        }
+        if(ball.x>=ctx.canvas.width-ball.r*2){
+            ball.x=ctx.canvas.width-ball.r*2;
+            ball.vx=-ball.vx;
+        }
+    }
+</script>
+</body>
+</html>

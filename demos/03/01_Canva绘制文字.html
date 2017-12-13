@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canva绘制文字</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="600px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 绘制文字的基准线
+	context.beginPath();
+	context.moveTo(100,0);
+	context.lineTo(100,200);
+	context.stroke();
+
+	// 1. 设置文字的相关信息
+	context.font = "bold 48px 宋体";
+
+	context.fillText("你好",300,200);
+
+	context.textAlign = "left";
+	// 2. 绘制文字
+	context.fillText("达内",100,50);
+
+	context.textAlign = "center";
+	context.fillText("达内",100,100);
+
+	context.textAlign = "right";
+	context.fillText("达内",100,150);
+
+	// 绘制基准线
+	context.beginPath();
+	context.moveTo(0,300);
+	context.lineTo(500,300);
+	context.stroke();
+	
+	// 绘制空心文字
+	context.textBaseline= "top";
+	context.strokeText("达内",100,300);
+
+	context.textBaseline = "middle";
+	context.strokeText("达内",200,300);
+
+	context.textBaseline = "bottom";
+	context.strokeText("达内",300,300);
+
+	context.textBaseline = "hanging";
+	context.strokeText("达内",400,300);
+
+	context.textBaseline = "alphabetic";
+	context.strokeText("达内",500,300);
+  </script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas创建路径案例</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 绘制圆形
+	context.beginPath();
+	context.arc(200,200,100,0,Math.PI*3/2);
+	context.stroke();
+
+	// 绘制矩形
+	context.beginPath();
+	context.rect(200,100,100,100);
+	context.stroke();
+
+	context.clearRect(201,99,100,100);
+  </script>
+ </body>
+</html>

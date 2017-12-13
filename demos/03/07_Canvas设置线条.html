@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas设置线条</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="800px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+/*	// 设置线条
+	context.lineWidth = 10;
+	context.lineCap = "round";
+	context.lineJoin = "miter";
+	context.miterLimit = 15;
+
+	// 绘制一条折线
+	context.beginPath();
+	context.moveTo(10,10);
+	context.lineTo(300,300);
+	context.lineTo(100,50);
+	context.stroke();
+	// 绘制空心矩形
+	context.strokeRect(350,200,100,100);*/
+
+	context.lineWidth=5;
+
+	context.beginPath();
+	context.moveTo(20,20);
+	context.lineTo(300,300);
+	context.lineTo(130,20);
+	context.stroke();
+
+	context.strokeRect(350,20,200,200);
+  </script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas平铺图片</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="900px" height="600px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 1. 加载图片
+	var myimg = new Image();
+	myimg.src = "house.jpg";
+	myimg.onload = function(){
+		// 2. 设置平铺
+		var ptn = context.createPattern(myimg,"no-repeat");
+		// 3. 设置颜色为图片平铺
+		context.fillStyle = ptn;
+		// 4. 绘制矩形
+		context.fillRect(0,0,canvas.width,canvas.height);
+	}
+  </script>
+ </body>
+</html>

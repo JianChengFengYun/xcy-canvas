@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>使用two.js的分组操作</title>
+  <meta charset="utf-8" />
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+  <div id="elem"></div>
+  <script>
+	var elem = document.getElementById("elem");
+	var two = new Two({
+		fullscreen : true
+	}).appendTo(elem);
+	// 绘制图形
+	var circle = two.makeCircle(200,200,100);
+	/*
+	circle.fill = "pink";
+	circle.stroke = "blue";
+	circle.linewidth = 5;
+	*/
+	var rect = two.makeRectangle(400,400,100,100);
+	/*
+	rect.fill = "pink";
+	rect.stroke = "blue";
+	rect.linewidth = 5;
+	*/
+	/*
+	 * 如果在HTML页面绘制多个图形,并且每个图形设置样式相同或类似
+	 * * 默认方式 - 每个图形重新设置一次(代码重复)
+	 * * 分组操作(Two.Group) - 当前案例
+	 *   * 将绘制的圆形和矩形分为一组
+	 *   * 针对这一组,统一设置显示样式
+	 * * 实际操作
+	 *   * 利用Two对象的makeGroup(objects)方法进行分组
+	 *     * objects - 设置分为一组的图形
+	 *       * 格式 - 允许传递多(不定)个参数
+	 *     * 该方法返回Group对象
+	 *   * 通过Group对象,统一针对这一组设置样式
+	 */
+	var group = two.makeGroup(circle,rect);
+	group.fill = "yellow";
+	group.stroke = "red";
+	group.linewidth = 10;
+
+	circle.fill = "green";
+
+	two.update();
+  </script>
+ </body>
+</html>

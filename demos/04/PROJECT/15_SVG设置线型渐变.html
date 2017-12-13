@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>SVG设置线型渐变</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <svg width="400px" height="400px">
+	<!--
+		设置线型渐变 - <linearGradient>
+		* 用法 - 将渐变定义在<defs>元素中
+		* 特点 - 具有基准线
+		  * 起点坐标值 - x1和y1
+		  * 终点坐标值 - x2和y2
+		* 注意
+		  * 该元素是起始元素
+		    <linearGradient></linearGradient>
+		  * x1和y1、x2和y2的值都是百分值
+		* 定义id属性
+		  * 用于将设置的渐变添加到绘制的图形元素中
+		* 使用<stop>元素 - 设置渐变的颜色
+		  * offset - 设置渐变颜色的位置
+		    * 该值也是百分值
+		  * stop-color - 设置渐变颜色
+		  * stop-opacity - 设置渐变颜色的透明度
+	-->
+	<defs>
+		<linearGradient id="mygrd" x1="0" y1="0" x2="100%" y2="100%">
+			<stop offset="0" stop-color="red" />
+			<stop offset="50%" stop-color="green" />
+			<stop offset="100%" stop-color="blue" />
+		</linearGradient>
+	</defs>
+	<!--
+		如何可以将上面设置线型渐变,添加在下面的矩形中?
+		* 使用fill属性,值为 url(#渐变元素的id值)
+	-->
+	<rect x="0" y="0" width="400" height="400" fill="url(#mygrd)" />
+  </svg>
+ </body>
+</html>

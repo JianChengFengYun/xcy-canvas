@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>圆形自上向下运动</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="600px" height="500px" style="background:pink"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	/*
+	 * 需求
+	 * * 在画布的顶部随机绘制圆形
+	 *   * 水平方向的坐标值随机(不能小于0,不能大于WIDTH)
+	 *   * 半径范围 - 10-50
+	 * * 整体所有圆形自上向下运动
+	 */
+	var r = Math.random()*40+10;
+	var WIDTH = canvas.width;
+	// 最小值 0+r   最大值 WIDTH-r
+	var x = Math.random()*WIDTH;
+	if(x < r){
+		x = r;
+	}
+	if(x > WIDTH-r){
+		x = WIDTH-r;
+	}
+	context.beginPath();
+	context.arc(x,-r,r,0,Math.PI*2);
+	context.fill();
+	// 动态效果 - 作业
+  </script>
+ </body>
+</html>

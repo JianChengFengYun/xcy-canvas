@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>如何使用two.js库</title>
+  <meta charset="utf-8" />
+  <!-- 1. 引入two.js文件 -->
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+  <!--
+	2. 在HTML页面中定义容器(元素)
+	* 使用<svg></svg>元素
+	* 使用<canvas></canvas>元素
+	* 使用<div></div>元素
+  -->
+  <div id="d"></div>
+  <script>
+	// 3. 获取页面中的<div>元素
+	var d = document.getElementById("d");
+	/*
+	 * 4. 设置svg的宽度和高度等属性
+	 *  params - Object类型 {}
+	 */
+	var params = {
+		width : 300,
+		height : 300
+	};
+	// 5. 创建Two对象
+	var two = new Two(params);
+	// 6. 将创建的Two对象,添加到页面容器中
+	two.appendTo(d);
+	// 7. 使用two.js提供的API方法
+	two.makeCircle(100,100,50);// 设置圆形
+	two.update();// 绘制方法
+  </script>
+ </body>
+</html>

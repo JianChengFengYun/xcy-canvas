@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas绘制彩色矩形案例</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="1000px" height="600px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+	/*
+	 * 需求 - 在HTML页面中绘制空心矩形
+	 * * 坐标值随机
+	 *   * x和y的要求 - 不能大于页面宽度和高度
+	 * * 宽度和高度随机
+	 *   * 宽度和高度小于画布的高度和宽度
+	 * * 颜色随机
+	 *   * rgb(red,green,blue) - 0-255
+	 * * 每隔1秒,绘制一个空心矩形
+	 */
+	// 1. 获取Canvas元素的宽度和高度
+	const WIDTH = canvas.width;
+	const HEIGHT = canvas.height;
+	// 2. 定义一个函数完成逻辑
+	function myRect(){
+		var r = Math.floor(Math.random()*256);
+		var g = Math.floor(Math.random()*256);
+		var b = Math.floor(Math.random()*256);
+
+		var x = Math.random()*WIDTH;
+		var y = Math.random()*HEIGHT;
+
+		var width = Math.random()*WIDTH;
+		var height = Math.random()*HEIGHT;
+
+		if((x + width) >= WIDTH){
+			x = Math.random()*WIDTH;
+			width = Math.random()*WIDTH;
+		}
+		/*
+		while((x + width) >= WIDTH){
+			x = Math.random()*WIDTH;
+			width = Math.random()*WIDTH;
+		}*/
+		if((y + height) >= HEIGHT){
+			y = Math.random()*HEIGHT;
+			height = Math.random()*HEIGHT;
+		}
+
+		context.strokeStyle = "rgb("+r+","+g+","+b+")";
+		context.strokeRect(x,y,width,height);
+	}
+	setInterval("myRect()",1000);
+  </script>
+ </body>
+</html>

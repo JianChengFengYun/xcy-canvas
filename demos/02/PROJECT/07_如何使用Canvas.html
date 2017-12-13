@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>如何使用Canvas</title>
+  <meta charset="utf-8" />
+  <!--
+  <style>
+	canvas {
+		width : 500px;
+		height : 300px;
+		background : pink;
+	}
+  </style>
+  -->
+ </head>
+
+ <body>
+  <!-- 
+	1. 使用<canvas>元素定义画布
+	<canvas>元素 - HTML5的画布
+	* 默认宽度和高度 - 300px * 150px
+	* 效果 - 类似于<div>元素
+	问题 - 定义<canvas>元素的宽度和高度
+	* CSS样式方式 - 高宽比绘制出来是不对的
+	  * 使用style属性设置 - 有问题
+	  * 使用<style>元素 - 没有问题
+	* 属性方式 - 没有任何问题
+  -->
+  <canvas id="canvas" width="500px" height="300px" style="background:pink"></canvas>
+  <!--
+  <canvas id="canvas"></canvas>
+  -->
+  <script>
+	// 2. 获取<canvas>元素
+	var canvas = document.getElementById("canvas");
+	/*
+	 * 3. 创建画布对象(根据<canvas>元素)
+	 *  * getContext()方法
+	 *    * 返回值,就是画布对象
+	 *    * 参数 - 表示创建的是2D效果还是3D效果
+	 *  * 注意
+	 *    * 参数类型是string类型
+	 *    * 参数必须是"2d"或"3d"(固定写法)
+	 *  * 画布(Canvas)对象
+	 *    * 通过该对象使用Canvas提供的API方法
+	 */
+	var context = canvas.getContext("2d");
+	// 4. 绘制图形(目前了解)
+	context.fillRect(10,10,100,100);
+  </script>
+ </body>
+</html>

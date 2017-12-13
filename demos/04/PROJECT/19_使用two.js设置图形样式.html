@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>使用two.js设置图形样式</title>
+  <meta charset="utf-8" />
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+  <div id="elem"></div>
+  <script>
+	var elem = document.getElementById("elem");
+	var two = new Two({
+		fullscreen : true
+	}).appendTo(elem);
+	// 调用绘制圆形方法时,该方法返回圆形对象
+	var circle = two.makeCircle(200,200,200);
+	// 利用圆形对象设置相关样式属性
+	circle.fill = "pink";
+	circle.stroke = "blue";
+	circle.linewidth = 10;
+	two.update();
+  </script>
+ </body>
+</html>

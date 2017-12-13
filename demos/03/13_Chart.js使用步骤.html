@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Chart.js使用步骤</title>
+  <meta charset="utf-8" />
+  <!-- 1. 引入Chart.js文件 -->
+  <script src="Chart.js"></script>
+ </head>
+
+ <body>
+  <!-- 2. 定义<canvas>元素 -->
+  <canvas id="canvas" width="300" height="300"></canvas>
+  <script>
+	// 3. 获取<canvas>元素
+	var canvas = document.getElementById("canvas");
+	// 4. 创建画布对象
+	var context = canvas.getContext("2d");
+	// 5. 通过画布对象,创建Chart对象
+	var chart = new Chart(context);
+	// 6. 利用Chart对象,绘制图表
+	/*
+	 * Pie(data)方法 - 表示绘制饼状图
+	 * * data - 设置饼状图的相关数据内容
+	 *   * 数据类型 - array数组类型
+	 *     * 每个元素 - 表示饼状图的一个部分
+	 *     * 每个元素的格式 - object对象类型
+	 *     {
+	 *        value : 饼状图占比,number类型
+	 *        color : 设置饼状图的颜色
+	 *        highlight : 设置鼠标悬停时的颜色
+	 *        label : 设置饼状图的提示内容
+	 *     }
+	 */
+	var data = [
+				{
+					value: 300,
+					color:"blue",
+					highlight: "yellow",
+					label: "Tarena"
+				},
+				{
+					value: 500,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Green"
+				},
+				{
+					value: 100,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Yellow"
+				},
+				{
+					value: 40,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Grey"
+				}
+			];
+	chart.Pie(data);
+  </script>
+ </body>
+</html>

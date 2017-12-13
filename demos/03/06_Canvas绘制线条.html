@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas绘制线条</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 1. 表示开始创建路径
+	context.beginPath();
+	// 2. 设置直线(折线)的起点坐标值
+	context.moveTo(10,10);
+	// 3. 设置直线(折线)的终点(折点)坐标值
+	context.lineTo(100,10);
+	context.lineTo(100,100);
+	context.lineTo(10,100);
+	context.lineTo(10,10);
+	// 4. 绘制 - stroke()
+	context.stroke();
+
+	context.beginPath();
+	context.moveTo(200,100);
+	context.lineTo(400,100);
+	context.lineTo(400,400);
+	context.lineTo(200,400);
+	context.lineTo(300,300);
+	context.lineTo(200,100);
+	context.stroke();
+  </script>
+ </body>
+</html>

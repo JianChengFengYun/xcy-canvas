@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>SVG圆形跟随鼠标</title>
+  <meta charset="utf-8" />
+  <script src="two.js"></script>
+ </head>
+
+ <body>
+ <div id="div" style="width:500px;height:500px;"></div>
+  <script>
+
+	var div = document.getElementById("div");
+
+	var two=new Two({width:500,height:500}).appendTo(div);
+	var cc=two.makeCircle(100,100,10);
+		cc.fill="rgb(45,77,255)";
+		cc.noStroke();
+		two.update();
+
+
+	div.onmousemove=function(event){
+		var x = event.offsetX;
+		var y = event.offsetY;
+		//var x=parseInt(Math.random()*245)+10;
+		//var y=parseInt(Math.random()*245)+10;
+
+
+		var r=parseInt(Math.random()*255);
+		var g=parseInt(Math.random()*255);
+		var b=parseInt(Math.random()*255);
+
+		var WIDTH=parseInt(div.style.width);
+		var HEIGHT=parseInt(div.style.height);
+		var rect = two.makeRectangle(WIDTH/2, HEIGHT/2, WIDTH, HEIGHT);
+		rect.fill="white";
+		rect.noStroke();
+		var cc=two.makeCircle(x,y,10);
+		cc.fill="rgb("+r+","+g+","+b+")";
+		cc.noStroke();
+		two.update();
+
+		
+	};
+
+  </script>
+ </body>
+</html>

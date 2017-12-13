@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas扇形渐变效果</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext('2d');
+	/*
+	 * 1. 设置扇形渐变
+	 *  createRadialGradient(x1,y1,r1,x2,y2,r2)
+	 *  * x1和y1 - 第一个基准圆的圆心坐标值
+	 *  * r1 - 第一个基准圆的半径
+	 *  * x2和y2 - 第二个基准圆的圆心坐标值
+	 *  * r2 - 第二个基准圆的半径
+	 *  * 该方法返回渐变对象
+	 */
+	var grd = context.createRadialGradient(canvas.width/2,canvas.height/2,10,canvas.width/2,canvas.height/2,200);
+	// 2. 设置渐变颜色
+	grd.addColorStop(0,"red");
+	grd.addColorStop(0.8,"yellow");
+	grd.addColorStop(1,"blue");
+	// 3. 设置填充颜色为渐变
+	context.fillStyle = grd;
+	// 4. 绘制矩形
+	context.fillRect(0,0,canvas.width,canvas.height);
+  </script>
+ </body>
+</html>

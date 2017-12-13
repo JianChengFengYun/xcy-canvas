@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>SVG绘制矩形</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <!--
+	在HTML页面中使用svg标签的话
+	* 定义<svg></svg>元素
+	  * 类似于<canvas>元素的作用
+	  * 默认大小 300px * 150px
+	  * 设置宽度和高度 - 属性和style
+	* 利用svg绘制所有图形,必须定义在<svg>元素内
+	  * 利用svg绘制的图形是与HTML页面有关的
+  -->
+  <svg style="background:pink;width:400px;height:400px;">
+	<!--
+		绘制矩形 - <rect />
+		* x和y - 绘制矩形的左上角坐标值
+		* width和height - 绘制矩形的宽度和高度
+		  * 必须使用属性方式,不能使用style样式方式
+		* 默认颜色为黑色
+		设置颜色 - 既可以使用属性,还可以使用样式
+		* fill - 设置填充颜色
+		* stroke - 设置描边颜色
+		设置线条宽度
+		* stroke-width
+		注意
+		* svg绘制的图形,使用style方式设置样式,使用的不是CSS属性,而是SVG属性
+	-->
+	<rect x="10" y="10" width="100" height="100" fill="blue" stroke="black" stroke-width="5" />
+
+	<rect x="120" y="10" width="100" height="100" style="fill:blue;stroke:black;stroke-width:5" />
+  </svg>
+ </body>
+</html>

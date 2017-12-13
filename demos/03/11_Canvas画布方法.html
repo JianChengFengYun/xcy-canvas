@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Canvas画布方法</title>
+  <meta charset="utf-8" />
+ </head>
+
+ <body>
+  <canvas id="canvas" width="500px" height="500px"></canvas>
+  <script>
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext("2d");
+
+	// 1. 重新定位
+	context.translate(200,100);
+	// 2. 缩放 0.5
+	context.scale(0.5,0.5);
+	// 3. 旋转
+	context.rotate(Math.PI/10);
+
+	// 绘制实心矩形
+	context.fillStyle = "pink";
+	context.fillRect(0,0,100,50);
+  </script>
+ </body>
+</html>
